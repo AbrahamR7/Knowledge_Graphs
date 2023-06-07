@@ -1,0 +1,277 @@
+@prefix : <http://www.semanticweb.org/parham_r7/ontologies/2023/4/untitled-ontology-59/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/parham_r7/ontologies/2023/4/untitled-ontology-59/> .
+
+<http://www.semanticweb.org/parham_r7/ontologies/2023/4/untitled-ontology-59> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://example.com/ns/objectProperties#followed
+<http://example.com/ns/objectProperties#followed> rdf:type owl:ObjectProperty ;
+                                                  rdfs:domain <http://example.com/ns/Classes#driver> ;
+                                                  rdfs:range <http://example.com/ns/Classes#scenario> .
+
+
+###  http://example.com/ns/objectProperties#hasDrivenWith
+<http://example.com/ns/objectProperties#hasDrivenWith> rdf:type owl:ObjectProperty ;
+                                                       rdfs:domain <http://example.com/ns/Classes#driver> ;
+                                                       rdfs:range <http://example.com/ns/Classes#vehicle> .
+
+
+###  http://example.com/ns/objectProperties#wasDrivenBy
+<http://example.com/ns/objectProperties#wasDrivenBy> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://example.com/ns/Classes#vehicle> ;
+                                                     rdfs:range <http://example.com/ns/Classes#driver> .
+
+
+###  http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#hasPart
+<http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#hasPart> rdf:type owl:ObjectProperty ;
+                                                                               rdfs:domain <http://example.com/ns/Classes#vehicle> ;
+                                                                               rdfs:range <http://www.w3.org/ns/sosa#featureOfInterest> .
+
+
+###  http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#partOf
+<http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#partOf> rdf:type owl:ObjectProperty ;
+                                                                              rdfs:domain <http://www.w3.org/ns/sosa#featureOfInterest> ;
+                                                                              rdfs:range <http://example.com/ns/Classes#vehicle> .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#location
+<http://www.w3.org/2003/01/geo/wgs84_pos#location> rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain <http://www.w3.org/ns/sosa#observation> ;
+                                                   rdfs:range <http://www.w3.org/2003/01/geo/wgs84_pos#point> .
+
+
+###  http://www.w3.org/ns/sosa#hasFeatureOfIntrest
+<http://www.w3.org/ns/sosa#hasFeatureOfIntrest> rdf:type owl:ObjectProperty ;
+                                                rdfs:domain <http://www.w3.org/ns/sosa#observation> ;
+                                                rdfs:range <http://www.w3.org/ns/sosa#featureOfInterest> .
+
+
+###  http://www.w3.org/ns/sosa#hasResult
+<http://www.w3.org/ns/sosa#hasResult> rdf:type owl:ObjectProperty ;
+                                      rdfs:domain <http://www.w3.org/ns/sosa#observation> ;
+                                      rdfs:range <http://www.w3.org/ns/sosa#result> .
+
+
+###  http://www.w3.org/ns/sosa#hosts
+<http://www.w3.org/ns/sosa#hosts> rdf:type owl:ObjectProperty ;
+                                  rdfs:domain <http://www.w3.org/ns/sosa#platform> ;
+                                  rdfs:range <http://www.w3.org/ns/sosa#sensor> .
+
+
+###  http://www.w3.org/ns/sosa#isFeatureOfIntrestOf
+<http://www.w3.org/ns/sosa#isFeatureOfIntrestOf> rdf:type owl:ObjectProperty ;
+                                                 rdfs:domain <http://www.w3.org/ns/sosa#featureOfInterest> ;
+                                                 rdfs:range <http://www.w3.org/ns/sosa#observation> .
+
+
+###  http://www.w3.org/ns/sosa#isHostedBy
+<http://www.w3.org/ns/sosa#isHostedBy> rdf:type owl:ObjectProperty ;
+                                       rdfs:domain <http://www.w3.org/ns/sosa#sensor> ;
+                                       rdfs:range <http://www.w3.org/ns/sosa#platform> .
+
+
+###  http://www.w3.org/ns/sosa#isObservedBy
+<http://www.w3.org/ns/sosa#isObservedBy> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://www.w3.org/ns/sosa#observableProperty> ;
+                                         rdfs:range <http://www.w3.org/ns/sosa#sensor> .
+
+
+###  http://www.w3.org/ns/sosa#isResultOf
+<http://www.w3.org/ns/sosa#isResultOf> rdf:type owl:ObjectProperty ;
+                                       rdfs:domain <http://www.w3.org/ns/sosa#result> ;
+                                       rdfs:range <http://www.w3.org/ns/sosa#observation> .
+
+
+###  http://www.w3.org/ns/sosa#madeBySensor
+<http://www.w3.org/ns/sosa#madeBySensor> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://www.w3.org/ns/sosa#observation> ;
+                                         rdfs:range <http://www.w3.org/ns/sosa#sensor> .
+
+
+###  http://www.w3.org/ns/sosa#madeObservation
+<http://www.w3.org/ns/sosa#madeObservation> rdf:type owl:ObjectProperty ;
+                                            rdfs:domain <http://www.w3.org/ns/sosa#sensor> ;
+                                            rdfs:range <http://www.w3.org/ns/sosa#observation> .
+
+
+###  http://www.w3.org/ns/sosa#observedProperty
+<http://www.w3.org/ns/sosa#observedProperty> rdf:type owl:ObjectProperty ;
+                                             rdfs:domain <http://www.w3.org/ns/sosa#observation> ;
+                                             rdfs:range <http://www.w3.org/ns/sosa#observableProperty> .
+
+
+###  http://www.w3.org/ns/sosa#observes
+<http://www.w3.org/ns/sosa#observes> rdf:type owl:ObjectProperty ;
+                                     rdfs:domain <http://www.w3.org/ns/sosa#sensor> ;
+                                     rdfs:range <http://www.w3.org/ns/sosa#observableProperty> .
+
+
+###  http://www.w3.org/ns/sosa#usedProcedure
+<http://www.w3.org/ns/sosa#usedProcedure> rdf:type owl:ObjectProperty ;
+                                          rdfs:domain <http://www.w3.org/ns/sosa#observation> ;
+                                          rdfs:range <http://www.w3.org/ns/sosa#procedure> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://example.com/ns/Classes#scenario
+<http://example.com/ns/Classes#scenario> rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain <http://example.com/ns/Classes#scenario> ;
+                                         rdfs:range rdfs:Literal .
+
+
+###  http://example.com/ns/properties#distance
+<http://example.com/ns/properties#distance> rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain <http://example.com/ns/Classes#scenario> ;
+                                            rdfs:range rdfs:Literal .
+
+
+###  http://example.com/ns/properties#driver
+<http://example.com/ns/properties#driver> rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain <http://example.com/ns/Classes#driver> ;
+                                          rdfs:range rdfs:Literal .
+
+
+###  http://example.com/ns/properties#hardware
+<http://example.com/ns/properties#hardware> rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain <http://www.w3.org/ns/sosa#sensor> ;
+                                            rdfs:range rdfs:Literal .
+
+
+###  http://example.com/ns/properties#interest
+<http://example.com/ns/properties#interest> rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain <http://www.w3.org/ns/sosa#featureOfInterest> ;
+                                            rdfs:range rdfs:Literal .
+
+
+###  http://example.com/ns/properties#platform
+<http://example.com/ns/properties#platform> rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain <http://www.w3.org/ns/sosa#platform> ;
+                                            rdfs:range rdfs:Literal .
+
+
+###  http://example.com/ns/properties#procedure
+<http://example.com/ns/properties#procedure> rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain <http://www.w3.org/ns/sosa#procedure> ;
+                                             rdfs:range rdfs:Literal .
+
+
+###  http://example.com/ns/properties#result
+<http://example.com/ns/properties#result> rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain <http://www.w3.org/ns/sosa#result> ;
+                                          rdfs:range rdfs:Literal .
+
+
+###  http://example.com/ns/properties#samplingRate
+<http://example.com/ns/properties#samplingRate> rdf:type owl:DatatypeProperty ;
+                                                rdfs:domain <http://www.w3.org/ns/sosa#sensor> ;
+                                                rdfs:range rdfs:Literal .
+
+
+###  http://example.com/ns/properties#sensor
+<http://example.com/ns/properties#sensor> rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain <http://www.w3.org/ns/sosa#sensor> ;
+                                          rdfs:range rdfs:Literal .
+
+
+###  http://example.com/ns/properties#vehicle
+<http://example.com/ns/properties#vehicle> rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain <http://example.com/ns/Classes#vehicle> ;
+                                           rdfs:range rdfs:Literal .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#lat
+<http://www.w3.org/2003/01/geo/wgs84_pos#lat> rdf:type owl:DatatypeProperty ;
+                                              rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#point> ;
+                                              rdfs:range rdfs:Literal .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#long
+<http://www.w3.org/2003/01/geo/wgs84_pos#long> rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#point> ;
+                                               rdfs:range rdfs:Literal .
+
+
+###  http://www.w3.org/ns/sosa#hasSimpleResult
+<http://www.w3.org/ns/sosa#hasSimpleResult> rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain <http://www.w3.org/ns/sosa#observation> ;
+                                            rdfs:range rdfs:Literal .
+
+
+###  http://www.w3.org/ns/sosa#observableProperty
+<http://www.w3.org/ns/sosa#observableProperty> rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain <http://www.w3.org/ns/sosa#observableProperty> ;
+                                               rdfs:range rdfs:Literal .
+
+
+###  http://www.w3.org/ns/sosa#observation
+<http://www.w3.org/ns/sosa#observation> rdf:type owl:DatatypeProperty ;
+                                        rdfs:domain <http://www.w3.org/ns/sosa#observation> ;
+                                        rdfs:range rdfs:Literal .
+
+
+###  http://www.w3.org/ns/sosa#resultTime
+<http://www.w3.org/ns/sosa#resultTime> rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain <http://www.w3.org/ns/sosa#observation> ;
+                                       rdfs:range xsd:dateTimeStamp .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://example.com/ns/Classes#driver
+<http://example.com/ns/Classes#driver> rdf:type owl:Class .
+
+
+###  http://example.com/ns/Classes#scenario
+<http://example.com/ns/Classes#scenario> rdf:type owl:Class .
+
+
+###  http://example.com/ns/Classes#vehicle
+<http://example.com/ns/Classes#vehicle> rdf:type owl:Class .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#point
+<http://www.w3.org/2003/01/geo/wgs84_pos#point> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa#featureOfInterest
+<http://www.w3.org/ns/sosa#featureOfInterest> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa#observableProperty
+<http://www.w3.org/ns/sosa#observableProperty> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa#observation
+<http://www.w3.org/ns/sosa#observation> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa#platform
+<http://www.w3.org/ns/sosa#platform> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa#procedure
+<http://www.w3.org/ns/sosa#procedure> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa#result
+<http://www.w3.org/ns/sosa#result> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa#sensor
+<http://www.w3.org/ns/sosa#sensor> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

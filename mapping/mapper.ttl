@@ -1,0 +1,376 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
+@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
+@prefix transit: <http://vocab.org/transit/terms/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn:  <http://www.w3.org/ns/ssn/> .
+@prefix schema: <http://schema.org/> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
+@prefix part: <http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#>.
+@prefix cusOnto: <http://example.com/ns/customonto#>.
+@prefix ex: <http://example.com/ns#>.
+@base <http://example.com/ns#>.
+
+
+
+<#observationMapping> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/Users/parham_r7/Documents/Project01/outputs/rowData/features.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "http://example.com/ns/observation/{unique_id}";
+    rr:class owl:individual;
+    rr:class owl:Class ;
+    rr:class sosa:Observation
+  ];
+  rr:predicateObjectMap [
+    rr:predicate sosa:observedProperty;
+    rr:objectMap [
+      rr:template "http://example.com/ns/property/{property}"
+      ];
+    ];
+  rr:predicateObjectMap [
+    rr:predicate sosa:hasFeatureOfInterest;
+    rr:objectMap [
+      rr:template "http://example.com/ns/feature/{feature}"
+    ];
+  ];
+    rr:predicateObjectMap [
+    rr:predicate sosa:hasResult;
+    rr:objectMap [
+      rr:template "http://example.com/ns/result/{measure}"
+    ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicate sosa:madeBySensor;
+    rr:objectMap [
+      rr:template "http://example.com/ns/sensor/{sensor}"
+    ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicate sosa:usedProcedure;
+    rr:objectMap [
+      rr:template "http://example.com/ns/Procedure/{procedure}"
+    ];
+  ];
+     rr:predicateObjectMap [
+    rr:predicate wgs:location;
+    rr:objectMap [
+      rr:template "http://example.com/ns/point/{timestamp_gps}"
+    ];
+  ];
+    rr:predicateObjectMap [
+    rr:predicate sosa:resultTime;
+    rr:objectMap [
+      rml:reference "datetime"
+    ] ;
+  ];
+     rr:predicateObjectMap [
+    rr:predicate sosa:hasSimpleResult;
+    rr:objectMap [
+      rml:reference "measure"
+    ] ;
+  ];
+     rr:predicateObjectMap [
+    rr:predicate cusOnto:roadTypeLabel;
+    rr:objectMap [
+      rml:reference "Road_Surface_Type_Labels"
+    ] ;
+  ];
+     rr:predicateObjectMap [
+    rr:predicate cusOnto:roadConditionLabel;
+    rr:objectMap [
+      rml:reference "Road_Surface_Condition"
+    ] ;
+  ];
+     rr:predicateObjectMap [
+    rr:predicate cusOnto:roadRoughnessLabelLeft;
+    rr:objectMap [
+      rml:reference "Road_Roughness_Condition_Left"
+    ] ;
+  ];
+     rr:predicateObjectMap [
+    rr:predicate cusOnto:roadRoughnessLabelRight;
+    rr:objectMap [
+      rml:reference "Road_Roughness_Condition_Right"
+    ] ;
+  ];
+     rr:predicateObjectMap [
+    rr:predicate cusOnto:roadSpeedBumpLabel;
+    rr:objectMap [
+      rml:reference "Speed_Bump_Types"
+    ] ;
+  ].
+
+<#FeatureOfInterestMapping> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/Users/parham_r7/Documents/Project01/outputs/rowData/features.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "http://example.com/ns/feature/{feature}";
+    rr:class owl:Class  ;
+    rr:class sosa:FeatureOfInterest
+  ];
+     rr:predicateObjectMap [
+    rr:predicate part:partOf;
+    rr:objectMap [
+      rr:template "http://example.com/ns/vehicle/{vehicle}"
+    ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicate sosa:isFeatureOfInterestOf;
+    rr:objectMap [
+      rr:template "http://example.com/ns/observation/{unique_id}"
+    ];
+  ];
+   rr:predicateObjectMap [
+    rr:predicate cusOnto:value;
+    rr:objectMap [
+      rml:reference "feature"
+    ];
+  ].
+
+
+<#ObservablePropertyMapping> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/Users/parham_r7/Documents/Project01/outputs/rowData/features.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "http://example.com/ns/observableProperty/{property}";
+    rr:class owl:Class  ;
+    rr:class sosa:ObservableProperty
+  ];
+  rr:predicateObjectMap [
+    rr:predicate sosa:isObservedBy;
+    rr:objectMap [
+      rr:template "http://example.com/ns/sensor/{sensor}"
+    ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicate cusOnto:value;
+    rr:objectMap [
+      rml:reference "property"
+    ];
+  ].
+
+
+<#ResultMapping> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/Users/parham_r7/Documents/Project01/outputs/rowData/features.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "http://example.com/ns/result/{measure}";
+    rr:class owl:Class  ;
+    rr:class sosa:Result
+  ];
+  rr:predicateObjectMap [
+    rr:predicate sosa:isResultOf;
+    rr:objectMap [
+      rr:template "http://example.com/ns/observation/{unique_id}"
+    ];
+  ];
+    rr:predicateObjectMap [
+    rr:predicate cusOnto:value;
+    rr:objectMap [
+      rml:reference "measure"
+    ];
+  ].
+
+
+<#SensorMapping> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/Users/parham_r7/Documents/Project01/outputs/rowData/features.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "http://example.com/ns/sensor/{sensor}";
+    rr:class owl:Class  ;
+    rr:class sosa:Sensor
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate sosa:observes;
+    rr:objectMap [
+      rr:template "http://example.com/ns/observation/{property}"
+    ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicate sosa:madeObservation;
+    rr:objectMap [
+      rr:template "http://example.com/ns/observation/{unique_id}"
+    ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicate sosa:isHostedBy;
+    rr:objectMap [
+      rr:template "http://example.com/ns/platform/{platform}"
+    ];
+  ];
+   rr:predicateObjectMap [
+    rr:predicate cusOnto:value;
+    rr:objectMap [
+      rml:reference "sensor"
+    ];
+  ]
+ .
+
+
+<#PlatformMapping> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/Users/parham_r7/Documents/Project01/outputs/rowData/features.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "http://example.com/ns/platform/{platform}";
+    rr:class owl:Class  ;
+    rr:class sosa:Platform
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate sosa:hosts;
+    rr:objectMap [
+      rr:template "http://example.com/ns/sebsor/{sensor}"
+    ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicate cusOnto:value;
+    rr:objectMap [
+      rml:reference "platform"
+    ];
+  ]
+  .
+
+
+<#ProcedureMapping> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/Users/parham_r7/Documents/Project01/outputs/rowData/features.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "http://example.com/ns/procedure/{procedure}";
+    rr:class owl:Class  ;
+    rr:class sosa:procedure
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate cusOnto:value;
+    rr:objectMap [
+      rml:reference "procedure"
+    ];
+  ]
+ .
+
+
+<#VehicleMapping> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/Users/parham_r7/Documents/Project01/outputs/rowData/features.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "http://example.com/ns/vehicle/{vehicle}";
+    rr:class owl:Class  ;
+    rr:class cusOnto:vehicle
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate part:hasPart;
+    rr:objectMap [
+      rr:template "http://example.com/ns/observation/{feature}"
+    ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicate cusOnto:wasDrivenBy;
+    rr:objectMap [
+      rr:template "http://example.com/ns/driver/{driver}"
+    ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicate cusOnto:value;
+    rr:objectMap [
+      rml:reference "vehicle"
+    ];
+  ]
+  .
+
+
+<#DriverMapping> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/Users/parham_r7/Documents/Project01/outputs/rowData/features.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "http://example.com/ns/driver/{driver}";
+    rr:class owl:Class  ;
+    rr:class cusOnto:Driver
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate cusOnto:followed;
+    rr:objectMap [
+      rr:template "http://example.com/ns/scenario/{scenario}"
+    ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicate cusOnto:hasDrivenWith;
+    rr:objectMap [
+      rr:template "http://example.com/ns/vehicle/{vehicle}"
+    ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicate cusOnto:value;
+    rr:objectMap [
+      rml:reference "driver"
+    ];
+  ]
+  .
+
+<#ScenarioMapping> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/Users/parham_r7/Documents/Project01/outputs/rowData/features.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "http://example.com/ns/scenario/{scenario}";
+    rr:class owl:Class  ;
+    rr:class cusOnto:Scenario
+  ] ;
+     rr:predicateObjectMap [
+    rr:predicate cusOnto:Distance;
+    rr:objectMap [
+      rml:reference "Distance"
+    ] ;
+  ];
+    rr:predicateObjectMap [
+    rr:predicate cusOnto:value;
+    rr:objectMap [
+      rml:reference "scenario"
+    ];
+  ]
+  .
+
+
+<#PointMapping> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/Users/parham_r7/Documents/Project01/outputs/rowData/features.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "http://example.com/ns/point/{timestamp_gps}";
+    rr:class owl:Class  ;
+    rr:class wgs:Point
+  ] ;
+     rr:predicateObjectMap [
+    rr:predicate wgs:lat;
+    rr:objectMap [
+      rml:reference "latitude"
+    ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate wgs:long;
+    rr:objectMap [
+      rml:reference "longitude"
+    ] ;
+  ].
