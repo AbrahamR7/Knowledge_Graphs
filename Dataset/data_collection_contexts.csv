@@ -1,0 +1,10 @@
+,DataSet,Vehicle,Driver,Scenario,Distance
+0,PVS 1,volkswagen-saveiro,Driver01,Scenario01,13.81
+1,PVS 2,volkswagen-saveiro,Driver01,Scenario02,11.62
+2,PVS 3,volkswagen-saveiro,Driver01,Scenario03,10.72
+3,PVS 4,fiat-bravo,Driver02,Scenario01,13.81
+4,PVS 5,fiat-bravo,Driver02,Scenario02,11.63
+5,PVS 6,fiat-bravo,Driver02,Scenario03,10.73
+6,PVS 7,fiat-palio,Driver03,Scenario01,13.78
+7,PVS 8,fiat-palio,Driver03,Scenario02,11.63
+8,PVS 9,fiat-palio,Driver03,Scenario03,10.74
