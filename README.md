@@ -16,7 +16,7 @@ For the mapping phase of the project, a language and engine are required. R2RML 
 
 To execute the mapping process efficiently, the Morph-KGC engine comes into play. Morph-KGC is an engine that constructs RDF knowledge graphs from heterogeneous data sources, leveraging the power of the R2RML and RML mapping languages. It is built on top of the pandas library and incorporates mapping partitions to optimize execution times and memory consumption, particularly for large data sources. By running your mapper script with the Morph-KGC engine, you can generate RDF files that represent the transformed data according to the defined mappings. This combination of language and engine enables the seamless conversion of relational and other structured data into RDF, facilitating the creation of comprehensive and interconnected knowledge graphs.
 
-### RDFLib and Oxigraph
+### RDFLib and Morph-KGC
 
 RDFLib, a Python package dedicated to working with RDF, offers a comprehensive set of functionalities for RDF-related tasks. It encompasses various essential components, such as parsers and serializers, a Graph interface for handling RDF data, store implementations for storing RDF triples, and SPARQL function extension mechanisms. SPARQL is a query language for retrieving and manipulating data stored in RDF format, providing powerful capabilities for querying and analyzing RDF-based knowledge graphs.
 
