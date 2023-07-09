@@ -16,6 +16,12 @@ For the mapping phase of the project, a language and engine are required. R2RML 
 
 To execute the mapping process efficiently, the Morph-KGC engine comes into play. Morph-KGC is an engine that constructs RDF knowledge graphs from heterogeneous data sources, leveraging the power of the R2RML and RML mapping languages. It is built on top of the pandas library and incorporates mapping partitions to optimize execution times and memory consumption, particularly for large data sources. By running your mapper script with the Morph-KGC engine, you can generate RDF files that represent the transformed data according to the defined mappings. This combination of language and engine enables the seamless conversion of relational and other structured data into RDF, facilitating the creation of comprehensive and interconnected knowledge graphs.
 
+### RDFLib and Oxigraph
+
+RDFLib, a Python package dedicated to working with RDF, offers a comprehensive set of functionalities for RDF-related tasks. It encompasses various essential components, such as parsers and serializers, a Graph interface for handling RDF data, store implementations for storing RDF triples, and SPARQL function extension mechanisms. SPARQL is a query language for retrieving and manipulating data stored in RDF format, providing powerful capabilities for querying and analyzing RDF-based knowledge graphs.
+
+In the context of knowledge graph construction, Morph-KGC serves as a valuable library that seamlessly integrates with RDFLib. This integration empowers developers to effortlessly create and manipulate knowledge graphs within their Python applications. By leveraging the capabilities of Morph-KGC and RDFLib together, developers can build and work with knowledge graphs efficiently, enabling advanced data representation and exploration.
+
 ### Storing
 
 In the final step of the project, the data is stored in a database to ensure efficient management and retrieval. There are numerous databases available for this purpose, and for this particular project, Neo4j was chosen. Neo4j is an open-source, NoSQL graph database that has gained popularity since its release in 2007. It provides a robust and transactional backend for applications, ensuring the integrity and consistency of the stored data.
